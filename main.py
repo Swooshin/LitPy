@@ -80,6 +80,7 @@ def LNGetMultiple(URL, chapter_req):
         }
 
         content.append(LNout)
+
     return content
 
 
@@ -174,7 +175,7 @@ def GetCover(URL):
 
 def main():
     URL = 'https://www.readlightnovel.org/chrysalis'
-    chapter_req = (1, 100)
+    chapter_req = (1, 1)
 
     coverimg = GetCover(URL)
     content = LNGetMultiple(URL, chapter_req)
