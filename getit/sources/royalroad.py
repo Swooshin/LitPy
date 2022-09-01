@@ -7,6 +7,7 @@ from selenium.webdriver.firefox.options import Options as FireFoxOptions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import WebDriverException
 
 
 class RoyalRoad():
@@ -14,9 +15,11 @@ class RoyalRoad():
         self._url_rr = "https://www.royalroad.com"
         
         self._options = FireFoxOptions()
-        # self._options.add_argument("--headless")
-        
-        self._driver = webdriver.Firefox(options=self._options)
+        # self._optionss.add_argument("--headless")
+        try:
+          self._driver = webdriver.Firefox(options=self._options)
+        except WebDriverException:
+          self._driver = None
 
     def getChapterList(self, url_base):
         # Request page
@@ -40,52 +43,28 @@ class RoyalRoad():
         
         return chapter_list
 
+  
     def getChapterContent(self, chapter_list):
-            content = []
-            for chapter in chapter_list[0:5]:
-                print(f"{self._url_rr}{chapter.get('url')}")
-                try:
-                    page = requests.get(
-                        f"{self._url_rr}{chapter.get('url')}", headers={"User-Agent": "Chrome/47.0.2526.111"}
-                    )
-                    print("Status 200")
-                except Exception:
-                    print("Status 404")
-                    continue
-                soup = BeautifulSoup(page.content, "html.parser")
-                page.raise_for_status()
+        content = []
+        for chapter in chapter_list:
+            tmp_dict = {}
+            tmp_dict = chapter
+            try:
+                page = requests.get(
+                    f"{self._url_rr}{chapter.get('url')}", headers={"User-Agent": "Chrome/47.0.2526.111"}
+                )
+                print("Status 200")
+            except Exception:
+                print("Status 404")
+                continue
+            soup = BeautifulSoup(page.content, "html.parser")
+            page.raise_for_status()
 
-                print(page.status_code)
-                result = soup.find("div", class_="chapter-content")
-                print(result.contents)
-
-
-        #         chapterno = chapter_url.split("/")[-1].replace("chapter-", "")
-
-        #         results = soup.find('div', class_='hidden')
-
-        #         try:
-        #             chaptername = results.find('h3').get_text()
-        #         except AttributeError as err:
-        #             print('Chapter-{} {}'.format(i, err))
-        #             chaptername = "Chapter {} .".format(chapterno)
-
-        #         paragraphs = results.find_all('p')
-        #         paragraphs = paragraphs[:len(paragraphs) - 2]
-        #         paragraphs.insert(0, '<h1>Chapter {}</h1>'.format(i))
-        #         paragraphs.insert(0, '<html>')
-        #         paragraphs.append('</html>')
-
-        #         LNout = {
-        #             "name": chapter_url.split("/")[-2].replace("-", " ").title(),
-        #             "chapterno": chapterno,
-        #             "chaptername": chaptername,
-        #             "text": ''.join([str(n) for n in paragraphs])
-        #         }
-
-        #         content.append(LNout)
-
-        #     return content
+            result = soup.find("div", class_="chapter-content")
+            tmp_dict['content'] = result
+            content.append(tmp_dict)
+            
+        return content
 
     def getMetaData():
         pass
