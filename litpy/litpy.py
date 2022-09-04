@@ -1,5 +1,5 @@
 from sourcedriver import SourceDriver
-from builder import createEbook
+from builder import create_ebook
 
 
 class LitPy:
@@ -31,7 +31,7 @@ class LitPy:
             delay=self._delay,
         )
 
-        createEbook(
+        create_ebook(
             content=content,
             book_id=self._book_id,
             book_title=self._book_title,
