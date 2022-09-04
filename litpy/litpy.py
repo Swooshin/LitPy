@@ -40,18 +40,15 @@ class LitPy:
 
 
 if __name__ == "__main__":
-    url_base = "https://www.royalroad.com/fiction/21220/mother-of-learning"
-
     litpy = LitPy()
-
     options = {
-        "url_lit": "https://www.royalroad.com/fiction/21220/mother-of-learning",
-        "start_chapter": 1,
-        "end_chapter": 5,
-        "delay": 1,
-        "book_id": "Test3",
-        "book_title": "Test3",
-        "book_save": "Test3.epub",
+        "url_lit": None,
+        "start_chapter": None,
+        "end_chapter": None,
+        "delay": None,
+        "book_id": None,
+        "book_title": None,
+        "book_save": None,
     }
     litpy.set_options(options)
 
