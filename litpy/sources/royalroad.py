@@ -24,7 +24,7 @@ class RoyalRoad:
         except WebDriverException:
             self._driver = None
 
-    def getChapterList(self, url_lit):
+    def get_chapter_list(self, url_lit):
         # Request page
         self._driver.get(url_lit)
 
@@ -58,7 +58,7 @@ class RoyalRoad:
                 return chapter_list
         return chapter_list
 
-    def getChapterContent(
+    def get_chapter_content(
         self, chapter_list, start_chapter=None, end_chapter=None, delay=2
     ):
         if chapter_list is None:
@@ -102,14 +102,14 @@ class RoyalRoad:
         return chapter_list
 
     def pull_data(self, url_lit, start_chapter=None, end_chapter=None, delay=2):
-        chapter_list = self.getChapterList(url_lit)
-        content = self.getChapterContent(
+        chapter_list = self.get_chapter_list(url_lit)
+        content = self.get_chapter_content(
             chapter_list, start_chapter=start_chapter, end_chapter=end_chapter
         )
         return content
 
-    def getMetaData():
+    def get_meta_data():
         pass
 
-    def getRejectedTags():
+    def get_rejected_tags():
         pass

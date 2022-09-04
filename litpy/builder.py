@@ -1,7 +1,7 @@
 from ebooklib import epub
 
 
-def createEbook(content, book_id, book_title, book_save):
+def create_ebook(content, book_id, book_title, book_save):
     book = epub.EpubBook()
 
     # set metadata
