@@ -7,9 +7,11 @@ name = "pypi"
 selenium = "*"
 beautifulsoup4 = "*"
 requests = "*"
+ebooklib = "*"
 
 [dev-packages]
 black = "*"
+autopep8 = "*"
 
 [requires]
 python_version = "3.7"
