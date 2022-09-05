@@ -562,3 +562,15 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 DevTools listening on ws://localhost:63981/devtools/browser/8495568a-6ce1-435f-9478-32b763f3dacc
 1662288474634	Marionette	INFO	Stopped listening on port 63996
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1662375473068	geckodriver	INFO	Listening on 127.0.0.1:60195
+1662375476131	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60196" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\kiera\\AppData\\Local\\Temp\\rust_mozprofileidOVMa"
+1662375476727	Marionette	INFO	Marionette enabled
+1662375476734	Marionette	INFO	Listening on port 60206
+WebDriver BiDi listening on ws://localhost:60196
+Read port: 60206
+1662375476976	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\kiera\\AppData\\Local\\Temp\\rust_mozprofileidOVMa\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60196/devtools/browser/ac159ca5-e09a-4de1-bd20-7f777734b1cf
+1662376535193	Marionette	INFO	Stopped listening on port 60206
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 14968, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
