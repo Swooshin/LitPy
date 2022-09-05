@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # Selenium
-geckodriver.exe
+.geckodriver.exe
