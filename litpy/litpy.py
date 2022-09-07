@@ -1,4 +1,4 @@
-from sourcedriver import SourceDriver
+from sources.driver import SourceDriver
 from builder import create_ebook
 
 
@@ -41,6 +41,7 @@ class LitPy:
 
 if __name__ == "__main__":
     litpy = LitPy()
+
     options = {
         "url_lit": None,
         "start_chapter": None,
@@ -50,6 +51,7 @@ if __name__ == "__main__":
         "book_title": None,
         "book_save": None,
     }
+
     litpy.set_options(options)
 
     litpy.convert2epub()

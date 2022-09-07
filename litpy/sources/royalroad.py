@@ -14,15 +14,9 @@ from model import Chapter
 
 
 class RoyalRoad:
-    def __init__(self):
-        self._url_rr = "https://www.royalroad.com"
-
-        self._options = FireFoxOptions()
-        # self._optionss.add_argument("--headless")
-        try:
-            self._driver = webdriver.Firefox(options=self._options)
-        except WebDriverException:
-            self._driver = None
+    def __init__(self, webdriver):
+        self._url = "https://www.royalroad.com"
+        self._driver = webdriver
 
     def get_chapter_list(self, url_lit):
         # Request page
@@ -82,7 +76,7 @@ class RoyalRoad:
             tmp_dict = chapter
             try:
                 page = requests.get(
-                    f"{self._url_rr}{chapter.url}",
+                    f"{self._url}{chapter.url}",
                     headers={"User-Agent": "Chrome/47.0.2526.111"},
                 )
                 print("Status 200")
