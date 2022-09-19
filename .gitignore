@@ -161,3 +161,6 @@ cython_debug/
 
 # Selenium
 .geckodriver.exe
+
+# Testruns
+testrun.py

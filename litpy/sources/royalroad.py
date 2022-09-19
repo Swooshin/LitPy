@@ -30,7 +30,7 @@ class RoyalRoad:
         # Pass page source into Beautiful Soup
         soup = BeautifulSoup(self._driver.page_source, "html.parser")
         # Compile a regex pattern to use to find the list
-        pattern = re.compile(r"window\.chapters = (\[.*?\])", re.MULTILINE)
+        pattern = re.compile(r"window\.chapters = (\[\{.*?\}\])", re.MULTILINE)
         script = soup.find("script", text=pattern)
 
         chapter_list = []
