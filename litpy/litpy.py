@@ -1,6 +1,10 @@
 from sources.driver import SourceDriver
 from builder import create_ebook
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class LitPy:
     def __init__(self):

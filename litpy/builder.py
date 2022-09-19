@@ -1,5 +1,9 @@
 from ebooklib import epub
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def create_ebook(content, book_id, book_title, book_save):
     book = epub.EpubBook()

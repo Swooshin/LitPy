@@ -6,6 +6,10 @@ from selenium.common.exceptions import WebDriverException
 
 from sources.royalroad import RoyalRoad
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def SourceDriver(url_lit):
     if re.search("royalroad.com", url_lit):

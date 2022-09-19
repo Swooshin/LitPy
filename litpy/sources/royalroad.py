@@ -12,6 +12,10 @@ from selenium.common.exceptions import WebDriverException
 
 from model import Chapter
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class RoyalRoad:
     def __init__(self, webdriver):
@@ -21,6 +25,7 @@ class RoyalRoad:
     def get_chapter_list(self, url_lit):
         # Request page
         self._driver.get(url_lit)
+        logger.info("Webdriver initialised")
 
         # Wait for page to load
         element = WebDriverWait(driver=self._driver, timeout=5).until(
@@ -68,6 +73,8 @@ class RoyalRoad:
         if end_chapter is None:
             end_chapter = len(chapter_list)
 
+        logger.info(f"Scraping chapters {start_chapter} to {end_chapter}")
+
         chapter_list = chapter_list[start_chapter:end_chapter]
 
         content = []
@@ -79,9 +86,9 @@ class RoyalRoad:
                     f"{self._url}{chapter.url}",
                     headers={"User-Agent": "Chrome/47.0.2526.111"},
                 )
-                print("Status 200")
+                logger.info(f"Chapter - {chapter.slug} - Status 200")
             except Exception:
-                print("Status 404")
+                logger.info(f"Chapter - {chapter.slug} - Status 404")
                 continue
             soup = BeautifulSoup(page.content, "html.parser")
             page.raise_for_status()
